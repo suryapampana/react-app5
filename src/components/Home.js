@@ -36,7 +36,7 @@ export function Home() {
 
       {/** DISPLAY TWEET HERE */}
       <div className="mx-4 mt-4">
-        {state.list.map((item, index) => (
+        {state.tweet.list.map((item, index) => (
           <h4 key={index} className="text-secondary">
             {item}
           </h4>
