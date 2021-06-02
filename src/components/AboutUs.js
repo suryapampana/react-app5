@@ -6,8 +6,10 @@ export function AboutUs() {
   return (
     <div className="bg-info" style={{ height: "100vh" }}>
       <h1 className="text-light">About Us</h1>
+      <h2>{state.message}</h2>
+      <h3>{state.counter}</h3>
 
-      {state.tweet.list.map((item, index) => (
+      {state.list.map((item, index) => (
         <div key={index}>{item}</div>
       ))}
     </div>

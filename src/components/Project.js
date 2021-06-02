@@ -12,7 +12,7 @@ export function Project() {
   return (
     <div className="mx-4">
       <div className="alert alert-info mt-2 text-center">
-        COUNTER {state.cr.counter}
+        COUNTER {state.counter}
       </div>
 
       <input
