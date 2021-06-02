@@ -1,22 +1,25 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export function Home() {
   // private in nature :: state member are for this component only
   const [tinput, setTinput] = useState("");
-  const [list, setList] = useState([]);
+
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   const updateTinput = (e) => setTinput(e.target.value);
   const postTweet = () => {
-    setList([tinput, ...list]);
+    dispatch({ type: "POST_TWEET", payload: tinput });
     setTinput("");
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: "lightgray", height: "100vh" }}>
       {/** CAPTURE INPUT HERE  */}
-      <div className="d-flex mt-2 mx-4">
+      <div className=" bg-info  d-flex mt-2 mx-4">
         <input
-          className="form-control w-75"
+          className="text-danger form-control w-75"
           type="text"
           value={tinput}
           onChange={(e) => updateTinput(e)}
@@ -25,15 +28,17 @@ export function Home() {
         <input
           type="button"
           onClick={() => postTweet()}
-          className="w-25 btn btn-secondary"
+          className="w-25 btn btn-primary"
           value="Tweet"
         />
       </div>
 
+      <h2 className="text-primary mx-4 mt-4">Your Tweets</h2>
+
       {/** DISPLAY TWEET HERE */}
       <div className="mx-4 mt-4">
-        {list.map((item, index) => (
-          <h4 key={index} className="text-secondary">
+        {state.list.map((item, index) => (
+          <h4 key={index} className="text-danger">
             {item}
           </h4>
         ))}

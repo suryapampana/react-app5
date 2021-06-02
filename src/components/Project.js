@@ -10,7 +10,7 @@ export function Project() {
 
   return (
     <div className="mx-4">
-      <div className="alert alert-info mt-2 text-center">
+      <div className="alert alert-danger mt-2 text-center">
         COUNTER {state.counter}
       </div>
 
