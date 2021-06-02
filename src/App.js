@@ -1,11 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Home } from "./components/Home";
-import { AboutUs } from "./components/AboutUs";
-import { Project } from "./components/Project";
-import { ContactUs } from "./components/ContactUs";
-import { AppNavBar } from "./common/AppNavBar";
 
 function App() {
   return (
