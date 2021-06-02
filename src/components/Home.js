@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { postTweetAction } from "../redux/actions/AppActions";
 
 export function Home() {
   // private in nature :: state member are for this component only
@@ -10,16 +11,16 @@ export function Home() {
 
   const updateTinput = (e) => setTinput(e.target.value);
   const postTweet = () => {
-    dispatch({ type: "POST_TWEET", payload: tinput });
+    dispatch(postTweetAction(tinput));
     setTinput("");
   };
 
   return (
-    <div style={{ backgroundColor: "lightgray", height: "100vh" }}>
+    <div>
       {/** CAPTURE INPUT HERE  */}
-      <div className=" bg-info  d-flex mt-2 mx-4">
+      <div className="d-flex mt-2 mx-4">
         <input
-          className="text-danger form-control w-75"
+          className="form-control w-75"
           type="text"
           value={tinput}
           onChange={(e) => updateTinput(e)}
@@ -28,17 +29,15 @@ export function Home() {
         <input
           type="button"
           onClick={() => postTweet()}
-          className="w-25 btn btn-primary"
+          className="w-25 btn btn-secondary"
           value="Tweet"
         />
       </div>
 
-      <h2 className="text-primary mx-4 mt-4">Your Tweets</h2>
-
       {/** DISPLAY TWEET HERE */}
       <div className="mx-4 mt-4">
         {state.list.map((item, index) => (
-          <h4 key={index} className="text-danger">
+          <h4 key={index} className="text-secondary">
             {item}
           </h4>
         ))}
